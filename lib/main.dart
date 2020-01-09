@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
@@ -35,12 +37,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _result = '';
   int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+    final file = File('E:\\[Downloads]\\123.html');
+    _result = file.readAsStringSync();
   }
 
   @override
@@ -59,6 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
+            ),
+            Text(
+              '$_result',
             ),
           ],
         ),
