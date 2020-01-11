@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
 import 'startup.bloc.dart';
-import '../login/login.page.dart';
-import '../dashboard/dashboard.page.dart';
-import '../../services/auth.service.dart';
-import '../../services/navigation.service.dart';
+import '../features.dart';
+import '../../widgets/widgets.dart';
+import '../../services/services.dart';
 
 class StartUpPage extends StatefulWidget {
   /// named route of [StartUpPage]
@@ -34,11 +33,14 @@ class _StartUpPageState extends State<StartUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'Loading...',
-          style: TextStyle(color: Colors.white),
+    return Background(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Text(
+            'Loading, please wait...',
+            style: TextStyle(color: Colors.grey[200]),
+          ),
         ),
       ),
     );

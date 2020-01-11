@@ -28,6 +28,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+    - images/background.png
+
   # See https://github.com/flutter/flutter/wiki/Desktop-shells#fonts
   fonts:
     - family: Roboto

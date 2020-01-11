@@ -1,15 +1,50 @@
 import 'package:flutter/material.dart';
 
+InputDecoration _getInputDecoration({
+  @required String hintText,
+  @required String labelText,
+  @required IconData prefixIcon,
+}) =>
+    InputDecoration(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(30)),
+        borderSide: BorderSide(color: Colors.grey[400]),
+        gapPadding: prefixIcon != null ? 8 : 0,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(30)),
+        borderSide: BorderSide(color: Colors.grey[600]),
+        gapPadding: prefixIcon != null ? 8 : 0,
+      ),
+      hintText: hintText,
+      labelText: labelText,
+      hintStyle: TextStyle(
+        color: Colors.grey[600],
+      ),
+      labelStyle: TextStyle(
+        color: Colors.grey[600],
+      ),
+      prefixIcon: prefixIcon != null
+          ? Icon(
+              prefixIcon,
+              color: Colors.grey[400],
+            )
+          : null,
+    );
+
 class Input extends StatelessWidget {
   const Input({
     Key key,
     this.hintText,
     this.labelText,
+    this.prefixIcon,
     this.obscureText = false,
   }) : super(key: key);
 
   final String hintText;
   final String labelText;
+  final IconData prefixIcon;
 
   final bool obscureText;
 
@@ -18,31 +53,10 @@ class Input extends StatelessWidget {
     return Container(
       height: 42,
       child: TextFormField(
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-          border: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(30)),
-            borderSide: BorderSide(color: Colors.grey[400]),
-            gapPadding: 0,
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(30)),
-            borderSide: BorderSide(color: Colors.grey[400]),
-            gapPadding: 0,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(30)),
-            borderSide: BorderSide(color: Colors.grey[400]),
-            gapPadding: 0,
-          ),
+        decoration: _getInputDecoration(
           hintText: hintText,
           labelText: labelText,
-          hintStyle: TextStyle(
-            color: Colors.grey[600],
-          ),
-          labelStyle: TextStyle(
-            color: Colors.grey[600],
-          ),
+          prefixIcon: prefixIcon,
         ),
         obscureText: obscureText,
         style: TextStyle(color: Colors.grey[200]),
@@ -56,11 +70,13 @@ class InputForm extends StatelessWidget {
     Key key,
     this.hintText,
     this.labelText,
+    this.prefixIcon,
     this.obscureText = false,
   }) : super(key: key);
 
   final String hintText;
   final String labelText;
+  final IconData prefixIcon;
 
   final bool obscureText;
 
@@ -69,34 +85,13 @@ class InputForm extends StatelessWidget {
     return Container(
       height: 42,
       child: TextFormField(
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-          border: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(30)),
-            borderSide: BorderSide(color: Colors.grey[400]),
-            gapPadding: 0,
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(30)),
-            borderSide: BorderSide(color: Colors.grey[400]),
-            gapPadding: 0,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(30)),
-            borderSide: BorderSide(color: Colors.grey[400]),
-            gapPadding: 0,
-          ),
+        decoration: _getInputDecoration(
           hintText: hintText,
           labelText: labelText,
-          hintStyle: TextStyle(
-            color: Colors.grey[600],
-          ),
-          labelStyle: TextStyle(
-            color: Colors.grey[600],
-          ),
+          prefixIcon: prefixIcon,
         ),
         obscureText: obscureText,
-        style: TextStyle(color: Colors.grey[200]),
+        style: TextStyle(color: Colors.white),
       ),
     );
   }

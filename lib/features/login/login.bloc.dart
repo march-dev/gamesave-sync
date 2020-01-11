@@ -1,16 +1,16 @@
 import 'package:flutter/foundation.dart';
 
-import '../../services/base.bloc.dart';
-import '../../services/auth.service.dart';
-import '../../services/navigation.service.dart';
+import '../../services/services.dart';
 
 class LoginBloc implements BaseBloc {
   const LoginBloc({
+    @required this.signupRoute,
     @required this.dashboardRoute,
     @required this.authService,
     @required this.navigationService,
   });
 
+  final String signupRoute;
   final String dashboardRoute;
   final AuthService authService;
   final NavigationService navigationService;
@@ -24,6 +24,8 @@ class LoginBloc implements BaseBloc {
       // TODO
     }
   }
+
+  void signUp() => navigationService.pushNamed(signupRoute);
 
   @override
   void dispose() {}

@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import '../../services/base.bloc.dart';
-import '../../services/navigation.service.dart';
+import '../../services/services.dart';
 
 class DashboardBloc implements BaseBloc {
   const DashboardBloc({

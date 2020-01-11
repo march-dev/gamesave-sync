@@ -4,11 +4,8 @@ import 'package:flutter/foundation.dart'
 
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
-import 'services/ioc.provider.dart';
-import 'features/login/login.page.dart';
-import 'services/navigation.service.dart';
-import 'features/startup/startup.page.dart';
-import 'features/dashboard/dashboard.page.dart';
+import 'services/services.dart';
+import 'features/features.dart';
 
 void main() {
   // See https://github.com/flutter/flutter/wiki/Desktop-shells#target-platform-override
@@ -38,6 +35,7 @@ class GameSaveSyncApp extends StatelessWidget {
       routes: {
         StartUpPage.route: (context) => StartUpPage(),
         LoginPage.route: (context) => LoginPage(),
+        SignupPage.route: (context) => SignupPage(),
         DashboardPage.route: (context) => DashboardPage(),
       },
     );
