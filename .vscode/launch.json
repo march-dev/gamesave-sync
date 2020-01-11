@@ -5,14 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug Win",
+            "name": "Debug",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "-d",
-                "windows"
-            ]
+            "flutterMode": "debug"
+        },
+        {
+            "name": "Release",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
         }
     ]
 }

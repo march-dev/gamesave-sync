@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 
+import '../../services/base.bloc.dart';
 import '../../services/auth.service.dart';
 import '../../services/navigation.service.dart';
 
-class StartUpBloc {
+class StartUpBloc implements BaseBloc {
   const StartUpBloc({
     @required this.loginRoute,
     @required this.dashboardRoute,
@@ -23,4 +24,7 @@ class StartUpBloc {
       navigationService.pushNamed(loginRoute);
     }
   }
+
+  @override
+  void dispose() {}
 }

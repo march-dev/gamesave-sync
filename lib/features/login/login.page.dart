@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_simple_dependency_injection/injector.dart';
 
 import '../login/login.bloc.dart';
+import '../../widgets/widgets.dart';
 import '../dashboard/dashboard.page.dart';
 import '../../services/auth.service.dart';
 import '../../services/navigation.service.dart';
@@ -27,22 +28,41 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            'Login Page',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white),
+      body: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth: 300,
           ),
-          const SizedBox(height: 32),
-          Center(
-            child: RaisedButton(
-              child: Text('LOGIN'),
-              onPressed: () => bloc.login(),
-            ),
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
+            shrinkWrap: true,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  InputForm(
+                    hintText: 'my@email.com',
+                    labelText: 'E-mail',
+                  ),
+                  const SizedBox(height: 24),
+                  InputForm(
+                    labelText: 'Password',
+                    obscureText: true,
+                  ),
+                  const SizedBox(height: 24),
+                  Center(
+                    child: RaisedButton(
+                      child: Text('LOGIN'),
+                      onPressed: () => bloc.login(),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

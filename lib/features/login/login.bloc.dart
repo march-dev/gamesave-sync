@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 
+import '../../services/base.bloc.dart';
 import '../../services/auth.service.dart';
 import '../../services/navigation.service.dart';
 
-class LoginBloc {
+class LoginBloc implements BaseBloc {
   const LoginBloc({
     @required this.dashboardRoute,
     @required this.authService,
@@ -23,4 +24,7 @@ class LoginBloc {
       // TODO
     }
   }
+
+  @override
+  void dispose() {}
 }
